@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useGetCharactersQuery } from "../../api/rickAndMortyApi";
-import CharacterCard from "../../components/CharacterCard";
-import CharacterFilters from "../../components/CharacterFilters";
+import { useGetCharactersQuery } from "../api/rickAndMortyApi";
+import CharacterCard from "./CharacterCard";
+import CharacterFilters from "./CharacterFilters";
 
-export default function Characters() {
+export default function CharactersContainer() {
   const [page, setPage] = useState(1);
   const [filters, setFilters] = useState({ status: "", gender: "" });
 
@@ -28,7 +28,6 @@ export default function Characters() {
         ))}
       </div>
 
-      {/* Paginação */}
       <div className="flex justify-center gap-4 mt-6">
         <button
           className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
