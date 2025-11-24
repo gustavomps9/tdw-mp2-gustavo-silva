@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home/Home.jsx";
-import Characters from "../pages/Characters/Characters.jsx";
-import CharacterDetail from "../pages/CharacterDetail/CharacterDetail.jsx";
-import About from "../pages/About/About.jsx";
+import Home from "../pages/Home.jsx";
+import Characters from "../pages/Characters.jsx";
+import CharacterDetail from "../pages/CharacterDetail.jsx";
+import About from "../pages/About.jsx";
 
 export default function AppRouter() {
   return (
