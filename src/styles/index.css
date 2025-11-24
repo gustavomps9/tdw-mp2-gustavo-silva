@@ -1,0 +1,31 @@
+/* Importações principais do Tailwind */
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globais adicionais (opcional) */
+body {
+  @apply bg-gray-900 text-white font-sans;
+  margin: 0;
+  padding: 0;
+}
+
+/* Personalização de links */
+a {
+  @apply text-blue-400 hover:text-blue-500 transition-colors;
+}
+
+/* Scrollbar personalizada (opcional) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937; /* Tailwind gray-800 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563; /* Tailwind gray-600 */
+  border-radius: 4px;
+}
