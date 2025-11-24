@@ -1,9 +1,10 @@
-import Test from "./Test";
+import React from "react";
+import AppRouter from "./router/AppRouter.jsx";
 
 function App() {
   return (
-    <div className="p-6">
-      <Test />
+    <div className="min-h-screen bg-gray-900 text-white">
+      <AppRouter />
     </div>
   );
 }
