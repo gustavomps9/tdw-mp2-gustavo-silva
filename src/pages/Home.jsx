@@ -23,28 +23,11 @@ export default function Home() {
 
         <p className="text-lg opacity-90">
           O meu nome é <span className="text-green-300 font-semibold">
-          Gustavo Silva</span>, e este projeto representa a integração de vários 
-          conceitos que aprendi: React, Redux Toolkit, RTK Query, SPA Routing, 
-          UI/UX e boas práticas de desenvolvimento web moderno.
+          Gustavo Silva</span>, tenho 22 anos, sou estudante do Mestrado em Comunicação e Tecnologias Web. Os meus interesses baseiam-se em desenvolvimento mobile, Front-End e UI/UX Design.
+          Este projeto representa uma oportunidade para aplicar e expandir os meus conhecimentos em desenvolvimento web, focando na criação de interfaces intuitivas e funcionais.
+          Além disto, fora do ambiente académico, pratico basquetebol federado, adoro viajar, estar com amigos e jogar videojogos.
         </p>
       </section>
-
-      <section>
-        <h2 className="text-3xl font-semibold text-green-300 mb-3">
-          Sobre o Projeto
-        </h2>
-
-        <ul className="list-disc ml-6 space-y-2 opacity-90">
-          <li>Consumir dados dinâmicos de uma API externa (Rick and Morty API)</li>
-          <li>Listagem completa de personagens com paginação e filtros avançados</li>
-          <li>Página de detalhe individual por personagem</li>
-          <li>Navegação dinâmica com React Router</li>
-          <li>Dark/Light mode (a implementar)</li>
-          <li>UI personalizada inspirada no universo Rick & Morty</li>
-          <li>Código modular, organizado e escalável</li>
-        </ul>
-      </section>
-
     </div>
   );
 }

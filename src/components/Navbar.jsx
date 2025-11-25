@@ -41,6 +41,19 @@ export default function Navbar() {
           >
             Characters
           </NavLink>
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `text-lg transition ${
+                isActive
+                  ? "text-green-400 font-semibold drop-shadow-[0_0_6px_rgba(0,255,159,0.8)]"
+                  : "text-gray-300 hover:text-green-300"
+              }`
+            }
+          >
+            About
+          </NavLink>
         </div>
 
       </div>
