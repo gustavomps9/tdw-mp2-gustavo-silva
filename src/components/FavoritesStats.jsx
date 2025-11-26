@@ -22,17 +22,17 @@ export default function FavoritesStats({ favorites }) {
         />
         <StatCard 
           value={stats.alive} 
-          label="Alive" 
+          label="Vivos" 
           color="blue" 
         />
         <StatCard 
           value={stats.dead} 
-          label="Dead" 
+          label="Mortos" 
           color="red" 
         />
         <StatCard 
           value={stats.unknown} 
-          label="Unknown" 
+          label="Desconhecidos" 
           color="purple" 
         />
       </div>
