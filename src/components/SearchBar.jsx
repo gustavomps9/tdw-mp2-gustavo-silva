@@ -6,7 +6,12 @@ export default function SearchBar({ value, onChange }) {
         placeholder="Search characters..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full p-3 rounded bg-gray-700 text-white placeholder-gray-300"
+        className="w-full p-3 rounded 
+                   bg-gray-200 text-gray-900 
+                   placeholder-gray-600
+                   dark:bg-gray-700 dark:text-white 
+                   dark:placeholder-gray-300
+                   transition"
       />
     </div>
   );

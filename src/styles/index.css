@@ -7,14 +7,23 @@ html {
   @apply transition-colors duration-300;
 }
 
-/* Light mode default */
 body {
   @apply bg-gray-100 text-gray-900 font-sans min-h-screen transition-colors duration-300;
+  margin: 0;
+  padding: 0;
 }
 
-/* Dark mode aplicável quando <html> tem a classe "dark" */
+html.dark {
+  color-scheme: dark;
+}
+
 html.dark body {
   @apply bg-gray-900 text-gray-100;
+}
+
+* {
+  @apply transition-colors duration-300;
+  color: inherit;
 }
 
 .portal-glow {
@@ -23,4 +32,3 @@ html.dark body {
     0 0 10px #00ff9d,
     0 0 18px #00ff9d;
 }
-

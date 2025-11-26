@@ -1,5 +1,5 @@
-import { useTheme } from "../hooks/useTheme";
-import { Sun, Moon } from "lucide-react";
+import React from "react";
+import { useTheme } from '../hooks/useTheme'; 
 
 export default function ThemeToggle() {
   const { isDark, toggleTheme } = useTheme();
@@ -7,18 +7,10 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="
-        flex items-center justify-center w-10 h-10 
-        rounded-full border border-gray-400 dark:border-gray-600 
-        bg-gray-200 dark:bg-gray-800 
-        hover:scale-110 transition-transform duration-200
-      "
+      className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition text-lg"
+      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {isDark ? (
-        <Sun className="w-6 h-6 text-yellow-300 transition-opacity" />
-      ) : (
-        <Moon className="w-6 h-6 text-gray-700 transition-opacity" />
-      )}
+      {isDark ? '🌙' : '☀️'}
     </button>
   );
 }

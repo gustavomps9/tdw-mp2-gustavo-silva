@@ -4,14 +4,17 @@ import { Link } from "react-router-dom";
 export default function CharacterCard({ character }) {
   const statusColor =
     character.status === "Alive"
-      ? "bg-green-400"
+      ? "bg-green-500"
       : character.status === "Dead"
       ? "bg-red-500"
-      : "bg-yellow-400";
+      : "bg-gray-400";
 
   return (
     <Link to={`/characters/${character.id}`}>
-      <div className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transform transition duration-200">
+      <div className="bg-gray-100 dark:bg-gray-800 
+                      rounded-lg shadow-md overflow-hidden 
+                      hover:scale-105 transform transition duration-200">
+
         <img
           src={character.image}
           alt={character.name}
