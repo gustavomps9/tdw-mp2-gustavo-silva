@@ -3,7 +3,7 @@ import CharactersContainer from "../components/CharactersContainer";
 
 export default function Characters() {
   useEffect(() => {
-  document.title = "Characters | Mini Projeto M2A";
+  document.title = "Personagens | Mini Projeto M2A";
 }, []);
 
   return <CharactersContainer />;

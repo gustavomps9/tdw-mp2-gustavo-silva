@@ -3,7 +3,7 @@ import AboutContent from "../components/AboutContent";
 
 export default function About() {
   useEffect(() => {
-    document.title = "About — Mini Projeto M2A";
+    document.title = "Sobre o Projeto — Mini Projeto M2A";
   }, []);
 
   return <AboutContent />;
