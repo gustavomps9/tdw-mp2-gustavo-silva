@@ -14,12 +14,12 @@ export default function CharacterDetailContainer() {
   }, [data]);
 
   if (isLoading)
-    return <p className="text-gray-800 dark:text-gray-200 p-8 text-xl">Loading character...</p>;
+    return <p className="text-gray-800 dark:text-gray-200 p-8 text-xl">A carregar personagem...</p>;
 
   if (error)
     return (
       <p className="text-red-500 dark:text-red-400 p-8 text-xl">
-        Error fetching character details.
+        Ocorreu um erro ao carregar o personagem. Por favor, tenta novamente.
       </p>
     );
 
@@ -58,23 +58,23 @@ export default function CharacterDetailContainer() {
           </p>
 
           <p className="text-lg mb-2">
-            <span className="font-bold dark:text-white">Species:</span> {character.species}
+            <span className="font-bold dark:text-white">Espécie:</span> {character.species}
           </p>
 
           <p className="text-lg mb-2">
-            <span className="font-bold dark:text-white">Gender:</span> {character.gender}
+            <span className="font-bold dark:text-white">Género:</span> {character.gender}
           </p>
 
           <p className="text-lg mb-2">
-            <span className="font-bold dark:text-white">Origin:</span> {character.origin.name}
+            <span className="font-bold dark:text-white">Origem:</span> {character.origin.name}
           </p>
 
           <p className="text-lg mb-2">
-            <span className="font-bold dark:text-white">Location:</span> {character.location.name}
+            <span className="font-bold dark:text-white">Localização:</span> {character.location.name}
           </p>
 
           <p className="text-lg mt-4">
-            <span className="font-bold dark:text-white">Episodes:</span> {character.episode.length}
+            <span className="font-bold dark:text-white">Episódios:</span> {character.episode.length}
           </p>
 
         </div>
@@ -85,7 +85,7 @@ export default function CharacterDetailContainer() {
         className="mt-6 px-6 py-2 bg-gray-700 dark:bg-gray-600 
                    text-white rounded-lg hover:bg-gray-600 dark:hover:bg-gray-500"
       >
-        ← Back
+        ← Voltar
       </button>
     </div>
   );

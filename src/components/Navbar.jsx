@@ -1,8 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
+import { useFavorites } from "../hooks/useFavorites";
 import logo from "/public/rick-and-morty-v2.png";
 
 export default function Navbar() {
+  const { favoritesCount } = useFavorites();
+
   return (
     <nav className="navbar-glass sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -43,6 +46,20 @@ export default function Navbar() {
             }
           >
             Personagens
+          </NavLink>
+
+          <NavLink
+            to="/favorites"
+            className={({ isActive }) => 
+              `nav-link ${isActive ? 'nav-link-active' : ''}`
+            }
+          >
+            Favoritos
+            {favoritesCount > 0 && (
+              <span className="ml-1 px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full">
+                {favoritesCount}
+              </span>
+            )}
           </NavLink>
 
           <NavLink

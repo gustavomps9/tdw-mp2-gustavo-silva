@@ -74,15 +74,15 @@ export default function CharactersContainer() {
       />
 
       {isLoading && (
-        <p className="text-gray-800 dark:text-gray-300">Loading...</p>
+        <p className="text-gray-800 dark:text-gray-300">A carregar...</p>
       )}
 
       {!isLoading && error && error.status !== 404 && (
-        <p className="text-red-500 dark:text-red-400">Unexpected error.</p>
+        <p className="text-red-500 dark:text-red-400">Erro inesperado.</p>
       )}
 
       {!isLoading && noResults && (
-        <p className="text-yellow-500 dark:text-yellow-300 text-lg">No characters found.</p>
+        <p className="text-yellow-500 dark:text-yellow-300 text-lg">Não foram encontrados personagens.</p>
       )}
 
       {!isLoading && !noResults && (
@@ -100,11 +100,11 @@ export default function CharactersContainer() {
               onClick={() => setPage((p) => p - 1)}
               disabled={!data.info.prev}
             >
-              Previous
+              Anterior
             </button>
 
             <span className="text-gray-900 dark:text-gray-300 px-4 py-2">
-              Page {page} of {data.info.pages}
+              Página {page} de {data.info.pages}
             </span>
 
             <button
@@ -113,7 +113,7 @@ export default function CharactersContainer() {
               onClick={() => setPage((p) => p + 1)}
               disabled={!data.info.next}
             >
-              Next
+              Próxima
             </button>
           </div>
         </>
