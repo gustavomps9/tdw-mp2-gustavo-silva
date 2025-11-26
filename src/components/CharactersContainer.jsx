@@ -6,7 +6,6 @@ import SearchBar from "./SearchBar";
 
 export default function CharactersContainer() {
   const [page, setPage] = useState(1);
-
   const [filters, setFilters] = useState({
     search: "",
     status: "",
@@ -65,7 +64,8 @@ export default function CharactersContainer() {
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold text-white mb-6">Characters</h1>
+      {/* Título com dark mode */}
+      <h1 className="text-3xl font-bold text-white dark:text-gray-100 mb-6">Characters</h1>
 
       <SearchBar
         value={filters.search}
@@ -82,14 +82,14 @@ export default function CharactersContainer() {
         originOptions={originOptions}
       />
 
-      {isLoading && <p className="text-white">Loading...</p>}
+      {isLoading && <p className="text-white dark:text-gray-300">Loading...</p>}
 
       {!isLoading && error && error.status !== 404 && (
-        <p className="text-red-500">An unexpected error occurred.</p>
+        <p className="text-red-500 dark:text-red-400">An unexpected error occurred.</p>
       )}
 
       {!isLoading && noResults && (
-        <p className="text-yellow-400 text-lg">No characters found.</p>
+        <p className="text-yellow-400 dark:text-yellow-300 text-lg">No characters found.</p>
       )}
 
       {!isLoading && !noResults && (
@@ -100,21 +100,22 @@ export default function CharactersContainer() {
             ))}
           </div>
 
+          {/* Paginação com dark mode */}
           <div className="flex justify-center gap-4 mt-6">
             <button
-              className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+              className="px-4 py-2 bg-gray-700 dark:bg-gray-600 text-white rounded disabled:opacity-50 hover:bg-gray-600 dark:hover:bg-gray-500 transition"
               onClick={() => setPage((prev) => prev - 1)}
               disabled={!data.info.prev}
             >
               Previous
             </button>
 
-            <span className="text-white px-4 py-2">
+            <span className="text-white dark:text-gray-300 px-4 py-2">
               Page {page} of {data.info.pages}
             </span>
 
             <button
-              className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+              className="px-4 py-2 bg-gray-700 dark:bg-gray-600 text-white rounded disabled:opacity-50 hover:bg-gray-600 dark:hover:bg-gray-500 transition"
               onClick={() => setPage((prev) => prev + 1)}
               disabled={!data.info.next}
             >
