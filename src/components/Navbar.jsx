@@ -3,7 +3,7 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   return (
-    <nav className="w-full bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white shadow-lg border-b border-gray-200 dark:border-green-400/20">
+    <nav className="w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white shadow-lg border-b border-gray-200 dark:border-green-400/20">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         
         <Link 
