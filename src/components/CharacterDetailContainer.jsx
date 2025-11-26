@@ -7,8 +7,6 @@ export default function CharacterDetailContainer() {
   const { data, error, isLoading } = useGetCharacterByIdQuery(id);
   const navigate = useNavigate();
 
-  const { data: character, error, isLoading } = useGetCharacterByIdQuery(id);
-
   if (isLoading)
     return <p className="text-gray-800 dark:text-gray-200 p-8 text-xl">Loading character...</p>;
 
@@ -19,12 +17,7 @@ export default function CharacterDetailContainer() {
       </p>
     );
 
-  const statusColor =
-    character.status === "Alive"
-      ? "bg-green-400"
-      : character.status === "Dead"
-      ? "bg-red-500"
-      : "bg-yellow-400";
+  const character = data;
 
   const statusColor =
     character.status === "Alive"
@@ -47,7 +40,7 @@ export default function CharacterDetailContainer() {
         <img
           src={character.image}
           alt={character.name}
-          className="rounded-lg w-64 h-64 object-cover mx-auto md:mx-0 shadow-md"
+          className="rounded-lg w-64 h-64 object-cover mx-auto md:mx-0"
         />
 
         <div className="flex-1 text-gray-700 dark:text-gray-300">
