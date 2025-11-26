@@ -11,7 +11,7 @@ export default function AppRouter() {
     <Router>
       <Navbar />
 
-      <main className="min-h-[80vh]">
+      <main className="flex-grow min-h-[calc(80vh-4rem)]">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/characters" element={<Characters />} />

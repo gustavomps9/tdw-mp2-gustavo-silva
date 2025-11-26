@@ -6,16 +6,10 @@ export default function CharacterFilters({
   speciesOptions,
   originOptions,
 }) {
-  const baseSelect =
-    "p-2 rounded border outline-none transition-colors " +
-    "bg-white text-gray-900 border-gray-300 " +                
-    "dark:bg-gray-800 dark:text-white dark:border-gray-600";   
-
   return (
-    <div className="flex flex-wrap gap-4 mb-6">
-
+    <div className="flex flex-wrap gap-3 mb-8 p-4 bg-white/50 dark:bg-gray-800/50 rounded-2xl backdrop-blur-sm">
       <select
-        className={baseSelect}
+        className="select-modern"
         value={filters.status}
         onChange={(e) => setFilters({ ...filters, status: e.target.value })}
       >
@@ -26,7 +20,7 @@ export default function CharacterFilters({
       </select>
 
       <select
-        className={baseSelect}
+        className="select-modern"
         value={filters.gender}
         onChange={(e) => setFilters({ ...filters, gender: e.target.value })}
       >
@@ -38,7 +32,7 @@ export default function CharacterFilters({
       </select>
 
       <select
-        className={baseSelect}
+        className="select-modern"
         value={filters.species}
         onChange={(e) => setFilters({ ...filters, species: e.target.value })}
       >
@@ -51,7 +45,7 @@ export default function CharacterFilters({
       </select>
 
       <select
-        className={baseSelect}
+        className="select-modern"
         value={filters.origin}
         onChange={(e) => setFilters({ ...filters, origin: e.target.value })}
       >
@@ -64,11 +58,9 @@ export default function CharacterFilters({
       </select>
 
       <select
-        className={baseSelect}
+        className="select-modern"
         value={filters.episodeRange}
-        onChange={(e) =>
-          setFilters({ ...filters, episodeRange: e.target.value })
-        }
+        onChange={(e) => setFilters({ ...filters, episodeRange: e.target.value })}
       >
         <option value="">Episodes</option>
         <option value="1-5">1–5 episodes</option>
@@ -77,17 +69,16 @@ export default function CharacterFilters({
       </select>
 
       <select
-        className={baseSelect}
+        className="select-modern"
         value={filters.sort}
         onChange={(e) => setFilters({ ...filters, sort: e.target.value })}
       >
-        <option value="">Sort</option>
+        <option value="">Sort By</option>
         <option value="az">A → Z</option>
         <option value="za">Z → A</option>
         <option value="episodes">Most Episodes</option>
         <option value="id">By ID</option>
       </select>
-
     </div>
   );
 }

@@ -1,34 +1,36 @@
 import { Link, NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
+import logo from "/public/rick-and-morty-v2.png";
 
 export default function Navbar() {
   return (
-    <nav className="w-full bg-gray-100 dark:bg-gray-900 
-                    text-gray-900 dark:text-white 
-                    shadow-lg border-b 
-                    border-gray-300 dark:border-green-400/20">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-
-        {/* LOGO */}
+    <nav className="navbar-glass sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        
         <Link 
           to="/" 
-          className="text-2xl font-bold text-green-700 dark:text-green-400 
-                     hover:text-green-600 dark:hover:text-green-300 transition"
+          className="flex items-center gap-3 group"
         >
-          Mini Projeto M2A
+          <img 
+            src={logo} 
+            alt="Rick and Morty Logo" 
+            className="h-12 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
+          />
+          <div>
+            <h1 className="text-2xl font-bold gradient-text">
+              Rick & Morty Explorer
+            </h1>
+            <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+              Mini Projeto M2A - TDW
+            </p>
+          </div>
         </Link>
 
-        {/* LINKS */}
-        <div className="flex items-center gap-6">
-
+        <div className="flex items-center gap-8">
           <NavLink
             to="/"
-            className={({ isActive }) =>
-              `text-lg transition ${
-                isActive
-                  ? "text-green-700 dark:text-green-300 font-semibold"
-                  : "text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400"
-              }`
+            className={({ isActive }) => 
+              `nav-link ${isActive ? 'nav-link-active' : ''}`
             }
           >
             Home
@@ -36,28 +38,20 @@ export default function Navbar() {
 
           <NavLink
             to="/characters"
-            className={({ isActive }) =>
-              `text-lg transition ${
-                isActive
-                  ? "text-green-700 dark:text-green-300 font-semibold"
-                  : "text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400"
-              }`
+            className={({ isActive }) => 
+              `nav-link ${isActive ? 'nav-link-active' : ''}`
             }
           >
-            Characters
+            Personagens
           </NavLink>
 
           <NavLink
             to="/about"
-            className={({ isActive }) =>
-              `text-lg transition ${
-                isActive
-                  ? "text-green-700 dark:text-green-300 font-semibold"
-                  : "text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400"
-              }`
+            className={({ isActive }) => 
+              `nav-link ${isActive ? 'nav-link-active' : ''}`
             }
           >
-            About
+            Sobre o Projeto
           </NavLink>
 
           <ThemeToggle />
