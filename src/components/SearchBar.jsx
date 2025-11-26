@@ -4,7 +4,7 @@ export default function SearchBar({ value, onChange }) {
       <div className="relative">
         <input
           type="text"
-          placeholder="Search characters by name..."
+          placeholder="Pesquisar personagens pelo nome..."
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className="w-full p-4 pl-12 pr-4 rounded-xl 

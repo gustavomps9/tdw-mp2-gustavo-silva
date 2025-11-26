@@ -8,7 +8,7 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition text-lg"
-      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      title={isDark ? "Mudar para modo claro" : "Mudar para modo escuro"}
     >
       {isDark ? '🌙' : '☀️'}
     </button>
