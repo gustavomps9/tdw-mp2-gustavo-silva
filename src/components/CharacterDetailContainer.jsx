@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useGetCharacterByIdQuery } from "../api/rickAndMortyApi";
 
@@ -6,6 +6,12 @@ export default function CharacterDetailContainer() {
   const { id } = useParams();
   const { data, error, isLoading } = useGetCharacterByIdQuery(id);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (data) {
+      document.title = `${data.name} | Mini Projeto M2A`;
+    }
+  }, [data]);
 
   if (isLoading)
     return <p className="text-gray-800 dark:text-gray-200 p-8 text-xl">Loading character...</p>;
