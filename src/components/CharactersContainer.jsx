@@ -31,41 +31,32 @@ export default function CharactersContainer() {
 
   if (filters.origin) {
     filteredCharacters = filteredCharacters.filter(
-      (c) => c.origin.name === filters.origin
+      c => c.origin.name === filters.origin
     );
   }
 
   if (filters.episodeRange === "1-5") {
-    filteredCharacters = filteredCharacters.filter((c) => c.episode.length <= 5);
+    filteredCharacters = filteredCharacters.filter(c => c.episode.length <= 5);
   }
   if (filters.episodeRange === "6-10") {
-    filteredCharacters = filteredCharacters.filter(
-      (c) => c.episode.length > 5 && c.episode.length <= 10
-    );
+    filteredCharacters = filteredCharacters.filter(c => c.episode.length > 5 && c.episode.length <= 10);
   }
   if (filters.episodeRange === "10plus") {
-    filteredCharacters = filteredCharacters.filter((c) => c.episode.length > 10);
+    filteredCharacters = filteredCharacters.filter(c => c.episode.length > 10);
   }
 
-  if (filters.sort === "az") {
-    filteredCharacters.sort((a, b) => a.name.localeCompare(b.name));
-  }
-  if (filters.sort === "za") {
-    filteredCharacters.sort((a, b) => b.name.localeCompare(a.name));
-  }
-  if (filters.sort === "episodes") {
-    filteredCharacters.sort((a, b) => b.episode.length - a.episode.length);
-  }
-  if (filters.sort === "id") {
-    filteredCharacters.sort((a, b) => a.id - b.id);
-  }
+  if (filters.sort === "az") filteredCharacters.sort((a, b) => a.name.localeCompare(b.name));
+  if (filters.sort === "za") filteredCharacters.sort((a, b) => b.name.localeCompare(a.name));
+  if (filters.sort === "episodes") filteredCharacters.sort((a, b) => b.episode.length - a.episode.length);
+  if (filters.sort === "id") filteredCharacters.sort((a, b) => a.id - b.id);
 
-  const noResults = (!data || (error && error.status === 404)) || filteredCharacters.length === 0;
+  const noResults =
+    (!data || (error && error.status === 404)) || filteredCharacters.length === 0;
 
   return (
     <div className="p-8">
-      {/* Título com dark mode */}
-      <h1 className="text-3xl font-bold text-white dark:text-gray-100 mb-6">Characters</h1>
+
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Characters</h1>
 
       <SearchBar
         value={filters.search}
@@ -82,14 +73,16 @@ export default function CharactersContainer() {
         originOptions={originOptions}
       />
 
-      {isLoading && <p className="text-white dark:text-gray-300">Loading...</p>}
+      {isLoading && (
+        <p className="text-gray-800 dark:text-gray-300">Loading...</p>
+      )}
 
       {!isLoading && error && error.status !== 404 && (
-        <p className="text-red-500 dark:text-red-400">An unexpected error occurred.</p>
+        <p className="text-red-500 dark:text-red-400">Unexpected error.</p>
       )}
 
       {!isLoading && noResults && (
-        <p className="text-yellow-400 dark:text-yellow-300 text-lg">No characters found.</p>
+        <p className="text-yellow-500 dark:text-yellow-300 text-lg">No characters found.</p>
       )}
 
       {!isLoading && !noResults && (
@@ -100,23 +93,24 @@ export default function CharactersContainer() {
             ))}
           </div>
 
-          {/* Paginação com dark mode */}
           <div className="flex justify-center gap-4 mt-6">
             <button
-              className="px-4 py-2 bg-gray-700 dark:bg-gray-600 text-white rounded disabled:opacity-50 hover:bg-gray-600 dark:hover:bg-gray-500 transition"
-              onClick={() => setPage((prev) => prev - 1)}
+              className="px-4 py-2 bg-gray-700 dark:bg-gray-600 text-white rounded disabled:opacity-50 
+                         hover:bg-gray-600 dark:hover:bg-gray-500"
+              onClick={() => setPage((p) => p - 1)}
               disabled={!data.info.prev}
             >
               Previous
             </button>
 
-            <span className="text-white dark:text-gray-300 px-4 py-2">
+            <span className="text-gray-900 dark:text-gray-300 px-4 py-2">
               Page {page} of {data.info.pages}
             </span>
 
             <button
-              className="px-4 py-2 bg-gray-700 dark:bg-gray-600 text-white rounded disabled:opacity-50 hover:bg-gray-600 dark:hover:bg-gray-500 transition"
-              onClick={() => setPage((prev) => prev + 1)}
+              className="px-4 py-2 bg-gray-700 dark:bg-gray-600 text-white rounded disabled:opacity-50 
+                         hover:bg-gray-600 dark:hover:bg-gray-500"
+              onClick={() => setPage((p) => p + 1)}
               disabled={!data.info.next}
             >
               Next

@@ -6,11 +6,16 @@ export default function CharacterFilters({
   speciesOptions,
   originOptions,
 }) {
+  const baseSelect =
+    "p-2 rounded border outline-none transition-colors " +
+    "bg-white text-gray-900 border-gray-300 " +                
+    "dark:bg-gray-800 dark:text-white dark:border-gray-600";   
+
   return (
     <div className="flex flex-wrap gap-4 mb-6">
 
       <select
-        className="p-2 rounded bg-gray-700 text-white"
+        className={baseSelect}
         value={filters.status}
         onChange={(e) => setFilters({ ...filters, status: e.target.value })}
       >
@@ -21,7 +26,7 @@ export default function CharacterFilters({
       </select>
 
       <select
-        className="p-2 rounded bg-gray-700 text-white"
+        className={baseSelect}
         value={filters.gender}
         onChange={(e) => setFilters({ ...filters, gender: e.target.value })}
       >
@@ -33,7 +38,7 @@ export default function CharacterFilters({
       </select>
 
       <select
-        className="p-2 rounded bg-gray-700 text-white"
+        className={baseSelect}
         value={filters.species}
         onChange={(e) => setFilters({ ...filters, species: e.target.value })}
       >
@@ -46,7 +51,7 @@ export default function CharacterFilters({
       </select>
 
       <select
-        className="p-2 rounded bg-gray-700 text-white"
+        className={baseSelect}
         value={filters.origin}
         onChange={(e) => setFilters({ ...filters, origin: e.target.value })}
       >
@@ -59,9 +64,11 @@ export default function CharacterFilters({
       </select>
 
       <select
-        className="p-2 rounded bg-gray-700 text-white"
+        className={baseSelect}
         value={filters.episodeRange}
-        onChange={(e) => setFilters({ ...filters, episodeRange: e.target.value })}
+        onChange={(e) =>
+          setFilters({ ...filters, episodeRange: e.target.value })
+        }
       >
         <option value="">Episodes</option>
         <option value="1-5">1–5 episodes</option>
@@ -70,7 +77,7 @@ export default function CharacterFilters({
       </select>
 
       <select
-        className="p-2 rounded bg-gray-700 text-white"
+        className={baseSelect}
         value={filters.sort}
         onChange={(e) => setFilters({ ...filters, sort: e.target.value })}
       >
