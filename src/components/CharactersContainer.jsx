@@ -2,53 +2,128 @@ import React, { useState } from "react";
 import { useGetCharactersQuery } from "../api/rickAndMortyApi";
 import CharacterCard from "./CharacterCard";
 import CharacterFilters from "./CharacterFilters";
+import SearchBar from "./SearchBar";
 
 export default function CharactersContainer() {
   const [page, setPage] = useState(1);
-  const [filters, setFilters] = useState({ status: "", gender: "" });
+  const [filters, setFilters] = useState({
+    search: "",
+    status: "",
+    gender: "",
+    species: "",
+    origin: "",
+    episodeRange: "",
+    sort: "",
+  });
 
   const { data, error, isLoading } = useGetCharactersQuery({
     page,
+    name: filters.search,
     status: filters.status,
     gender: filters.gender,
+    species: filters.species,
   });
 
-  if (isLoading) return <p className="text-white">Loading...</p>;
-  if (error) return <p className="text-red-500">Error fetching characters</p>;
+  const speciesOptions = data ? [...new Set(data.results.map(c => c.species))] : [];
+  const originOptions = data ? [...new Set(data.results.map(c => c.origin.name))] : [];
+
+  let filteredCharacters = data ? [...data.results] : [];
+
+  if (filters.origin) {
+    filteredCharacters = filteredCharacters.filter(
+      (c) => c.origin.name === filters.origin
+    );
+  }
+
+  if (filters.episodeRange === "1-5") {
+    filteredCharacters = filteredCharacters.filter((c) => c.episode.length <= 5);
+  }
+  if (filters.episodeRange === "6-10") {
+    filteredCharacters = filteredCharacters.filter(
+      (c) => c.episode.length > 5 && c.episode.length <= 10
+    );
+  }
+  if (filters.episodeRange === "10plus") {
+    filteredCharacters = filteredCharacters.filter((c) => c.episode.length > 10);
+  }
+
+  if (filters.sort === "az") {
+    filteredCharacters.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  if (filters.sort === "za") {
+    filteredCharacters.sort((a, b) => b.name.localeCompare(a.name));
+  }
+  if (filters.sort === "episodes") {
+    filteredCharacters.sort((a, b) => b.episode.length - a.episode.length);
+  }
+  if (filters.sort === "id") {
+    filteredCharacters.sort((a, b) => a.id - b.id);
+  }
+
+  const noResults = (!data || (error && error.status === 404)) || filteredCharacters.length === 0;
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold text-white mb-6">Characters</h1>
+      {/* Título com dark mode */}
+      <h1 className="text-3xl font-bold text-white dark:text-gray-100 mb-6">Characters</h1>
 
-      <CharacterFilters filters={filters} setFilters={setFilters} />
+      <SearchBar
+        value={filters.search}
+        onChange={(value) => {
+          setFilters({ ...filters, search: value });
+          setPage(1);
+        }}
+      />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {data.results.map((character) => (
-          <CharacterCard key={character.id} character={character} />
-        ))}
-      </div>
+      <CharacterFilters
+        filters={filters}
+        setFilters={setFilters}
+        speciesOptions={speciesOptions}
+        originOptions={originOptions}
+      />
 
-      <div className="flex justify-center gap-4 mt-6">
-        <button
-          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
-          onClick={() => setPage((prev) => prev - 1)}
-          disabled={!data.info.prev}
-        >
-          Previous
-        </button>
+      {isLoading && <p className="text-white dark:text-gray-300">Loading...</p>}
 
-        <span className="text-white px-4 py-2">
-          Page {page} of {data.info.pages}
-        </span>
+      {!isLoading && error && error.status !== 404 && (
+        <p className="text-red-500 dark:text-red-400">An unexpected error occurred.</p>
+      )}
 
-        <button
-          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
-          onClick={() => setPage((prev) => prev + 1)}
-          disabled={!data.info.next}
-        >
-          Next
-        </button>
-      </div>
+      {!isLoading && noResults && (
+        <p className="text-yellow-400 dark:text-yellow-300 text-lg">No characters found.</p>
+      )}
+
+      {!isLoading && !noResults && (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {filteredCharacters.map((character) => (
+              <CharacterCard key={character.id} character={character} />
+            ))}
+          </div>
+
+          {/* Paginação com dark mode */}
+          <div className="flex justify-center gap-4 mt-6">
+            <button
+              className="px-4 py-2 bg-gray-700 dark:bg-gray-600 text-white rounded disabled:opacity-50 hover:bg-gray-600 dark:hover:bg-gray-500 transition"
+              onClick={() => setPage((prev) => prev - 1)}
+              disabled={!data.info.prev}
+            >
+              Previous
+            </button>
+
+            <span className="text-white dark:text-gray-300 px-4 py-2">
+              Page {page} of {data.info.pages}
+            </span>
+
+            <button
+              className="px-4 py-2 bg-gray-700 dark:bg-gray-600 text-white rounded disabled:opacity-50 hover:bg-gray-600 dark:hover:bg-gray-500 transition"
+              onClick={() => setPage((prev) => prev + 1)}
+              disabled={!data.info.next}
+            >
+              Next
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

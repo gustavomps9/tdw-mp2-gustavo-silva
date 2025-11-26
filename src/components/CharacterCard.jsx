@@ -35,6 +35,16 @@ export default function CharacterCard({ character }) {
           </p>
           <p className="text-sm">{character.origin?.name}</p>
         </div>
+      <img
+        src={character.image}
+        alt={character.name}
+        className="w-full h-56 object-cover"
+      />
+      <div className="p-4">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white">{character.name}</h2>
+        <p className="text-gray-600 dark:text-gray-300">Status: {character.status}</p>
+        <p className="text-gray-600 dark:text-gray-300">Species: {character.species}</p>
+      </div>
       </div>
     </Link>
   );

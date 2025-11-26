@@ -1,31 +1,26 @@
-/* Importações principais do Tailwind */
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos globais adicionais (opcional) */
+html {
+  @apply transition-colors duration-300;
+}
+
+/* Light mode default */
 body {
-  @apply bg-gray-900 text-white font-sans;
-  margin: 0;
-  padding: 0;
+  @apply bg-gray-100 text-gray-900 font-sans min-h-screen transition-colors duration-300;
 }
 
-/* Personalização de links */
-a {
-  @apply text-blue-400 hover:text-blue-500 transition-colors;
+/* Dark mode aplicável quando <html> tem a classe "dark" */
+html.dark body {
+  @apply bg-gray-900 text-gray-100;
 }
 
-/* Scrollbar personalizada (opcional) */
-::-webkit-scrollbar {
-  width: 8px;
+.portal-glow {
+  text-shadow:
+    0 0 4px #00ff9d,
+    0 0 10px #00ff9d,
+    0 0 18px #00ff9d;
 }
 
-::-webkit-scrollbar-track {
-  background: #1f2937; /* Tailwind gray-800 */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #4b5563; /* Tailwind gray-600 */
-  border-radius: 4px;
-}
