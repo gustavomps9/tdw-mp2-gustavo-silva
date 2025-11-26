@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function CharacterCard({ character }) {
   return (
     <Link to={`/characters/${character.id}`}>
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transform transition duration-200">
+      <div className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transform transition duration-200">
       <img
         src={character.image}
         alt={character.name}
