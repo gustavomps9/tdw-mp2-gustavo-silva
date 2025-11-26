@@ -21,33 +21,25 @@ export default function CharacterCard({ character }) {
           className="w-full h-56 object-cover"
         />
 
-        <div className="p-4">
+        <div className="p-4 text-gray-900 dark:text-gray-100">
+          <h2 className="text-xl font-bold">{character.name}</h2>
 
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-            {character.name}
-          </h2>
-
-          <p className="flex items-center gap-2 text-gray-700 dark:text-gray-300 mt-1">
-            <span className={`w-3 h-3 rounded-full ${statusColor}`}></span>
+          <p className="flex items-center gap-2 mt-1 text-gray-700 dark:text-gray-300">
+            <span
+              className={`w-3 h-3 rounded-full ${statusColor} inline-block`}
+            ></span>
             {character.status} – {character.species}
           </p>
 
-          <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
-            <span className="font-semibold text-gray-800 dark:text-gray-200">
-              Last known location:
-            </span>
-            <br />
-            {character.location.name}
+          <p className="mt-3 text-sm opacity-80 font-semibold">
+            Last known location:
           </p>
+          <p className="text-sm">{character.location?.name}</p>
 
-          <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
-            <span className="font-semibold text-gray-800 dark:text-gray-200">
-              First seen in:
-            </span>
-            <br />
-            {character.origin.name}
+          <p className="mt-3 text-sm opacity-80 font-semibold">
+            First seen in:
           </p>
-
+          <p className="text-sm">{character.origin?.name}</p>
         </div>
       </div>
     </Link>
