@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useFavorites } from "../../hooks/useFavorites";
+import { useLanguage } from "../../hooks/useLanguage";
 
 export default function CharacterCard({ character }) {
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { t } = useLanguage();
   
   const statusClass =
     character.status === "Alive"
@@ -25,7 +27,7 @@ export default function CharacterCard({ character }) {
         <button
           onClick={handleFavoriteClick}
           className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 group/fav"
-          title={isFavorite(character.id) ? "Remover dos favoritos" : "Adicionar aos favoritos"}
+          title={isFavorite(character.id) ? t('favorites.remove') : t('favorites.add')}
         >
           {isFavorite(character.id) ? (
             <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
@@ -55,18 +57,22 @@ export default function CharacterCard({ character }) {
           <div className="flex items-center gap-2 mb-4">
             <span className={statusClass}></span>
             <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
-              {character.status} • {character.species}
+              {t(`characters.${character.status.toLowerCase()}`)} • {character.species}
             </span>
           </div>
 
           <div className="space-y-2 text-sm">
             <div>
-              <p className="text-gray-500 dark:text-gray-400 font-medium">Última Localização</p>
+              <p className="text-gray-500 dark:text-gray-400 font-medium">
+                {t('characters.lastLocation')}
+              </p>
               <p className="text-gray-700 dark:text-gray-300 line-clamp-1">{character.location?.name}</p>
             </div>
             
             <div>
-              <p className="text-gray-500 dark:text-gray-400 font-medium">Visto Primeiro em</p>
+              <p className="text-gray-500 dark:text-gray-400 font-medium">
+                {t('characters.firstSeen')}
+              </p>
               <p className="text-gray-700 dark:text-gray-300 line-clamp-1">{character.origin?.name}</p>
             </div>
           </div>

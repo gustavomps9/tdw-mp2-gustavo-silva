@@ -3,6 +3,7 @@ import { useGetCharactersQuery } from "../../api/rickAndMortyApi";
 import CharacterCard from "./CharacterCard";
 import CharacterFilters from "./CharacterFilters";
 import SearchBar from "../Other/SearchBar";
+import { useLanguage } from "../../hooks/useLanguage";
 
 export default function CharactersContainer() {
   const [page, setPage] = useState(1);
@@ -16,6 +17,7 @@ export default function CharactersContainer() {
     sort: "",
   });
 
+  const { t } = useLanguage();
   const { data, error, isLoading } = useGetCharactersQuery({
     page,
     name: filters.search,
@@ -56,7 +58,9 @@ export default function CharactersContainer() {
   return (
     <div className="p-8">
 
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Personagens</h1>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+        {t('characters.title')}
+      </h1>
 
       <SearchBar
         value={filters.search}
@@ -74,15 +78,17 @@ export default function CharactersContainer() {
       />
 
       {isLoading && (
-        <p className="text-gray-800 dark:text-gray-300">A carregar...</p>
+        <p className="text-gray-800 dark:text-gray-300">{t('common.loading')}</p>
       )}
 
       {!isLoading && error && error.status !== 404 && (
-        <p className="text-red-500 dark:text-red-400">Erro inesperado.</p>
+        <p className="text-red-500 dark:text-red-400">{t('common.error')}</p>
       )}
 
       {!isLoading && noResults && (
-        <p className="text-yellow-500 dark:text-yellow-300 text-lg">Não foram encontrados personagens.</p>
+        <p className="text-yellow-500 dark:text-yellow-300 text-lg">
+          {t('characters.noResults')}
+        </p>
       )}
 
       {!isLoading && !noResults && (
@@ -96,24 +102,24 @@ export default function CharactersContainer() {
           <div className="flex justify-center gap-4 mt-6">
             <button
               className="px-4 py-2 bg-gray-700 dark:bg-gray-600 text-white rounded disabled:opacity-50 
-                         hover:bg-gray-600 dark:hover:bg-gray-500"
+                         hover:bg-gray-600 dark:hover:bg-gray-500 transition-colors"
               onClick={() => setPage((p) => p - 1)}
               disabled={!data.info.prev}
             >
-              Anterior
+              {t('common.back')}
             </button>
 
             <span className="text-gray-900 dark:text-gray-300 px-4 py-2">
-              Página {page} de {data.info.pages}
+              {t('common.page', { current: page, total: data.info.pages })}
             </span>
 
             <button
               className="px-4 py-2 bg-gray-700 dark:bg-gray-600 text-white rounded disabled:opacity-50 
-                         hover:bg-gray-600 dark:hover:bg-gray-500"
+                         hover:bg-gray-600 dark:hover:bg-gray-500 transition-colors"
               onClick={() => setPage((p) => p + 1)}
               disabled={!data.info.next}
             >
-              Próxima
+              {t('common.next')}
             </button>
           </div>
         </>

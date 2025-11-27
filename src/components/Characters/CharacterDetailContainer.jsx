@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useGetCharacterByIdQuery } from "../../api/rickAndMortyApi";
+import { useLanguage } from "../../hooks/useLanguage";
 
 export default function CharacterDetailContainer() {
   const { id } = useParams();
   const { data, error, isLoading } = useGetCharacterByIdQuery(id);
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (data) {
@@ -14,12 +16,12 @@ export default function CharacterDetailContainer() {
   }, [data]);
 
   if (isLoading)
-    return <p className="text-gray-800 dark:text-gray-200 p-8 text-xl">A carregar personagem...</p>;
+    return <p className="text-gray-800 dark:text-gray-200 p-8 text-xl">{t('common.loading')}...</p>;
 
   if (error)
     return (
       <p className="text-red-500 dark:text-red-400 p-8 text-xl">
-        Ocorreu um erro ao carregar o personagem. Por favor, tenta novamente.
+        {t('common.error')}
       </p>
     );
 
@@ -52,29 +54,29 @@ export default function CharacterDetailContainer() {
         <div className="flex-1 text-gray-700 dark:text-gray-300">
 
           <p className="text-lg mb-2 flex items-center gap-2">
-            <span className="font-bold text-gray-900 dark:text-white">Status:</span>
+            <span className="font-bold text-gray-900 dark:text-white">{t('characters.status')}:</span>
             <span className={`w-3 h-3 rounded-full ${statusColor}`}></span>
-            {character.status}
+            {t(`characters.${character.status.toLowerCase()}`)}
           </p>
 
           <p className="text-lg mb-2">
-            <span className="font-bold dark:text-white">Espécie:</span> {character.species}
+            <span className="font-bold dark:text-white">{t('characters.species')}:</span> {character.species}
           </p>
 
           <p className="text-lg mb-2">
-            <span className="font-bold dark:text-white">Género:</span> {character.gender}
+            <span className="font-bold dark:text-white">{t('characters.gender')}:</span> {character.gender}
           </p>
 
           <p className="text-lg mb-2">
-            <span className="font-bold dark:text-white">Origem:</span> {character.origin.name}
+            <span className="font-bold dark:text-white">{t('characters.origin')}:</span> {character.origin.name}
           </p>
 
           <p className="text-lg mb-2">
-            <span className="font-bold dark:text-white">Localização:</span> {character.location.name}
+            <span className="font-bold dark:text-white">{t('characters.location')}:</span> {character.location.name}
           </p>
 
           <p className="text-lg mt-4">
-            <span className="font-bold dark:text-white">Episódios:</span> {character.episode.length}
+            <span className="font-bold dark:text-white">{t('characters.episodes')}:</span> {character.episode.length}
           </p>
 
         </div>
@@ -83,9 +85,9 @@ export default function CharacterDetailContainer() {
       <button
         onClick={() => navigate('/characters')}
         className="mt-6 px-6 py-2 bg-gray-700 dark:bg-gray-600 
-                   text-white rounded-lg hover:bg-gray-600 dark:hover:bg-gray-500"
+                   text-white rounded-lg hover:bg-gray-600 dark:hover:bg-gray-500 transition-colors"
       >
-        ← Voltar
+        ← {t('common.back')}
       </button>
     </div>
   );

@@ -1,0 +1,99 @@
+{
+  "common": {
+    "welcome": "Bem-vindo",
+    "loading": "A carregar...",
+    "error": "Erro ao carregar o personagem.",
+    "search": "Pesquisar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "all": "Todos",
+    "back": "Voltar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "page": "Página {current} de {total}",
+    "next": "Próximo",
+    "previous": "Anterior"
+  },
+  "nav": {
+    "home": "Início",
+    "characters": "Personagens",
+    "favorites": "Favoritos",
+    "about": "Sobre",
+    "language system": "Sistema de Idioma"
+},
+  "characters": {
+    "title": "Personagens",
+    "searchPlaceholder": "Pesquisar personagens por nome...",
+    "status": "Estado",
+    "species": "Espécie",
+    "gender": "Género",
+    "origin": "Origem",
+    "location": "Localização",
+    "episodes": "Episódios",
+    "alive": "Vivo",
+    "dead": "Morto",
+    "unknown": "Desconhecido",
+    "female": "Feminino",
+    "male": "Masculino",
+    "genderless": "Sem género",
+    "sort": "Ordenar Por",
+    "sortAZ": "A → Z",
+    "sortZA": "Z → A",
+    "sortEpisodes": "Mais Episódios",
+    "sortId": "Por ID",
+    "episodeRange": "Episódios",
+    "episode1_5": "1–5 episódios",
+    "episode6_10": "6–10 episódios",
+    "episode10plus": "10+ episódios",
+    "lastLocation": "Última Localização",
+    "firstSeen": "Visto Primeiro em",
+    "noResults": "Nenhum personagem encontrado",
+    "advanced filter": "Filtros Avançados"
+  },
+  "favorites": {
+    "title": "Meus Favoritos",
+    "emptyTitle": "Sem Favoritos",
+    "emptyMessage": "Começa a adicionar personagens aos teus favoritos para vê-los aqui!",
+    "exploreCharacters": "Explorar Personagens",
+    "clearAll": "Limpar Todos",
+    "backToCharacters": "Voltar para Personagens",
+    "stats": "Estatísticas dos Favoritos",
+    "total": "Total",
+    "charactersSaved": "{count} personagem{count, plural, one {} other {s}} guardado{count, plural, one {} other {s}}",
+    "add": "Adicionar aos favoritos",
+    "remove": "Remover dos favoritos"
+  },
+  "about": {
+    "title": "Sobre o Projeto",
+    "projectDescription": "O projeto consiste no desenvolvimento de uma aplicação web capaz de consumir dados dinâmicos de uma API externa, concretamente a Rick and Morty API, permitindo a obtenção e apresentação de informação atualizada sobre as personagens da série.",
+    "listingDescription": "A aplicação proporciona uma listagem completa de personagens, incluindo funcionalidades de paginação e filtros avançados que possibilitam ao utilizador refinar a pesquisa de acordo com critérios como nome, espécie, estado ou localização.",
+    "detailDescription": "Para além da listagem geral, cada personagem dispõe de uma página de detalhe individual, onde é apresentada informação específica e contextualizada, permitindo ao utilizador explorar o conteúdo de forma mais aprofundada.",
+    "technologies": "Tecnologias e Implementação",
+    "navigationDescription": "A navegação entre as diferentes páginas da aplicação é realizada de forma dinâmica utilizando o React Router, garantindo uma experiência fluída e intuitiva.",
+    "codeDescription": "O código segue princípios de estruturação e organização modular, permitindo escalabilidade e manutenção facilitada. Inclui ainda desafios extra como Dark Mode e sistema de favoritos com persistência local.",
+    "githubDescription": "A utilização do GitHub foi aplicada de forma estratégica, com commits incrementais que refletem a adição progressiva de funcionalidades. Além disso, foi também desenvolvida uma pipeline de integração contínua (CI) para assegurar a qualidade e estabilidade do código ao longo do desenvolvimento.",
+    "technologiesUsed": "Tecnologias e Ferramentas Utilizadas",
+    "extraFeatures": "Funcionalidades Extra Implementadas",
+    "darkLightMode": "Modo Escuro/Claro"
+  },
+  "home": {
+    "title": "Rick & Morty Explorer",
+    "subtitle": "Explora o universo multidimensional de Rick & Morty, através desta aplicação web que consome a",
+    "discoverCharacters": "Descobre as personagens, filtra por espécies, status e muito mais.",
+    "exploreCharacters": "Explorar Personagens",
+    "viewApiDocs": "Ver API Docs",
+    "aboutProject": "Sobre o Projeto",
+    "projectDescription": "Desenvolvido como parte do Mestrado em Comunicação e Tecnologias Web, nomeadamente para a UC de Tecnologias de Desenvolvimento Web, este projeto demonstra os conhecimentos adquiridos ao longo deste módulo em React, Redux Toolkit, RTK Query e desenvolvimento de interfaces modernas.",
+    "aboutMe": "Sobre Mim",
+    "aboutMeSection": {
+      "age": "Tenho 22 anos, sou aluno do Mestrado em Comunicação e Tecnologias Web e os meus interesses baseiam-se em desenvolvimento mobile, Front-End e UI/UX Design.",
+      "hobbies": "Algumas curiosidades sobre mim: jogo basquetebol federado desde os meus 6 anos, gosto de viajar e explorar novas culturas.",
+      "degree": "Mestrado em Comunicação e Tecnologias Web",
+      "development": "Desenvolvimento Front-End & Mobile",
+      "design": "UI/UX Design"
+    }
+  },
+  "footer": {
+    "miniProject": "Mini Projeto M2A"
+  }
+}

@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../../hooks/useLanguage";
 
 export default function FavoritesHeader({ favoritesCount, onClearFavorites }) {
+  const { t } = useLanguage();
+
   return (
     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
       <div>
         <h1 className="text-4xl font-bold gradient-text mb-2">
-          Meus Favoritos
+          {t('favorites.title')}
         </h1>
         <p className="text-gray-600 dark:text-gray-300">
-          {favoritesCount} personagem{favoritesCount !== 1 ? 's' : ''} guardado{favoritesCount !== 1 ? 's' : ''}
+          {t('favorites.charactersSaved', { count: favoritesCount })}
         </p>
       </div>
       
@@ -18,13 +21,13 @@ export default function FavoritesHeader({ favoritesCount, onClearFavorites }) {
           onClick={onClearFavorites}
           className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
         >
-          Limpar Todos
+          {t('favorites.clearAll')}
         </button>
         <Link 
           to="/characters" 
           className="btn-secondary text-center"
         >
-          Voltar para Personagens
+          {t('favorites.backToCharacters')}
         </Link>
       </div>
     </div>

@@ -1,0 +1,99 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "error": "Error loading character.",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "all": "All",
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "page": "Page {current} of {total}",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "nav": {
+    "home": "Home",
+    "characters": "Characters",
+    "favorites": "Favorites",
+    "about": "About",
+    "language system": "Language System"
+  },
+  "characters": {
+    "title": "Characters",
+    "searchPlaceholder": "Search characters by name...",
+    "status": "Status",
+    "species": "Species",
+    "gender": "Gender",
+    "origin": "Origin",
+    "location": "Location",
+    "episodes": "Episodes",
+    "alive": "Alive",
+    "dead": "Dead",
+    "unknown": "Unknown",
+    "female": "Female",
+    "male": "Male",
+    "genderless": "Genderless",
+    "sort": "Sort By",
+    "sortAZ": "A-Z",
+    "sortZA": "Z-A",
+    "sortEpisodes": "By Episodes", 
+    "sortId": "By ID",
+    "episodeRange": "Episodes",
+    "episode1_5": "1–5 episodes",
+    "episode6_10": "6–10 episodes",
+    "episode10plus": "10+ episodes",
+    "lastLocation": "Last Location",
+    "firstSeen": "First Seen in",
+    "noResults": "No characters found",
+    "advanced filter": "Advanced Filters"
+  },
+  "favorites": {
+    "title": "My Favorites",
+    "emptyTitle": "No Favorites Yet",
+    "emptyMessage": "Start exploring characters and add them to your favorites to see them here!",
+    "exploreCharacters": "Explore Characters",
+    "clearAll": "Clear All",
+    "backToCharacters": "Back to Characters",
+    "stats": "Favorites Statistics",
+    "total": "Total",
+    "charactersSaved": "{count} character{count, plural, one {} other {s}} saved",
+    "add": "Add to favorites",
+    "remove": "Remove from favorites"
+  },
+  "about": {
+    "title": "About the Project",
+    "projectDescription": "The project consists of developing a web application capable of consuming dynamic data from an external API, specifically the Rick and Morty API, allowing the retrieval and presentation of updated information about the series' characters.",
+    "listingDescription": "The application provides a complete character listing, including pagination features and advanced filters that allow the user to refine the search according to criteria such as name, species, status or location.",
+    "detailDescription": "In addition to the general listing, each character has an individual detail page, where specific and contextualized information is presented, allowing the user to explore the content in more depth.",
+    "technologies": "Technologies and Implementation",
+    "navigationDescription": "Navigation between the different pages of the application is performed dynamically using React Router, ensuring a fluid and intuitive experience.",
+    "codeDescription": "The code follows structuring and modular organization principles, allowing scalability and facilitated maintenance. It also includes extra challenges such as Dark Mode and favorites system with local persistence.",
+    "githubDescription": "The use of GitHub was applied strategically, with incremental commits that reflect the progressive addition of functionalities. Furthermore, a continuous integration (CI) pipeline was also developed to ensure code quality and stability throughout development.",
+    "technologiesUsed": "Technologies and Tools Used",
+    "extraFeatures": "Extra Features Implemented",
+    "darkLightMode": "Dark/Light Mode"
+  },
+  "home": {
+    "title": "Rick & Morty Explorer",
+    "subtitle": "Explore the multidimensional universe of Rick & Morty, through this web application that consumes the ",
+    "discoverCharacters": "Discover characters, filter by species, status and much more.",
+    "exploreCharacters": "Explore Characters",
+    "viewApiDocs": "View API Docs",
+    "aboutProject": "About the Project",
+    "projectDescription": "Developed as part of the Master's in Communication and Web Technologies, specifically for the Web Development Technologies course, this project demonstrates the knowledge acquired throughout this module in React, Redux Toolkit, RTK Query and modern interface development.",
+    "aboutMe": "About Me",
+    "aboutMeSection": {
+      "age": "I'm 22 years old, a student of the Master's in Communication and Web Technologies, and my interests are based on mobile development, Front-End and UI/UX Design.",
+      "hobbies": "Some curiosities about me: I've been playing federated basketball since I was 6 years old, I enjoy traveling and exploring new cultures.",
+      "degree": "Master's in Communication and Web Technologies",
+      "development": "Front-End & Mobile Development",
+      "design": "UI/UX Design"
+    }
+  },
+    "footer": {
+        "miniProject": "M2A Mini Project"
+    }
+}
