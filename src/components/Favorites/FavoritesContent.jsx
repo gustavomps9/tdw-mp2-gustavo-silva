@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useFavorites } from "../hooks/useFavorites";
-import CharacterCard from "./CharacterCard";
+import { useFavorites } from "../../hooks/useFavorites";
+import CharacterCard from "../Characters/CharacterCard";
 import FavoritesStats from "./FavoritesStats";
 import FavoritesEmptyState from "./FavoritesEmptyState";
 import FavoritesHeader from "./FavoritesHeader";

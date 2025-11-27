@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import HomeContent from "../components/HomeContent";
+import HomeContent from "../components/Home/HomeContent";
 
 export default function Home() {
 

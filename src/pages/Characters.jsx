@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import CharactersContainer from "../components/CharactersContainer";
+import CharactersContainer from "../components/Characters/CharactersContainer";
 
 export default function Characters() {
   useEffect(() => {

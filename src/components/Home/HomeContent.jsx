@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/rick-and-morty-logo.png";
+import logo from "../../assets/rick-and-morty-logo.png";
 import { Link } from "react-router-dom";
 
 export default function HomeContent() {
@@ -64,7 +64,6 @@ export default function HomeContent() {
           <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Olá, sou o Gustavo Silva</h3>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
             Tenho 22 anos, sou aluno do Mestrado em Comunicação e Tecnologias Web e os meus interesses baseiam-se em desenvolvimento mobile, Front-End e UI/UX Design.
-            <p></p>
             Algumas curiosidades sobre mim: jogo basquetebol federado desde os meus 6 anos, gosto de viajar e 
             explorar novas culturas.
           </p>

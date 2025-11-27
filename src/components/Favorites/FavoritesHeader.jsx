@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FavoritesContext } from "../context/FavoritesContext";
 
 export default function FavoritesHeader({ favoritesCount, onClearFavorites }) {
   return (

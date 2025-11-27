@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import { ThemeProvider } from './context/ThemeContext';
-import { FavoritesProvider } from './context/FavoritesContext';
+import { FavoritesProvider } from "./context/FavoritesProvider";
 import AppRouter from './router/AppRouter';
 import "./styles/index.css";
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useGetCharacterByIdQuery } from "../api/rickAndMortyApi";
+import { useGetCharacterByIdQuery } from "../../api/rickAndMortyApi";
 
 export default function CharacterDetailContainer() {
   const { id } = useParams();

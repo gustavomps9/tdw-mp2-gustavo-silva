@@ -1,5 +1,5 @@
 import React from "react";
-import FavoritesContent from "../components/FavoritesContent";
+import FavoritesContent from "../components/Favorites/FavoritesContent";
 import { useEffect } from "react";
 
 export default function Favorites() {

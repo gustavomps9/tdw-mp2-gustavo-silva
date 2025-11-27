@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
-import { useFavorites } from "../hooks/useFavorites";
+import { useFavorites } from "../../hooks/useFavorites";
 import logo from "/public/rick-and-morty-v2.png";
 
 export default function Navbar() {

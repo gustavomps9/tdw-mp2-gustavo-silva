@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useGetCharactersQuery } from "../api/rickAndMortyApi";
+import { useGetCharactersQuery } from "../../api/rickAndMortyApi";
 import CharacterCard from "./CharacterCard";
 import CharacterFilters from "./CharacterFilters";
-import SearchBar from "./SearchBar";
+import SearchBar from "../Other/SearchBar";
 
 export default function CharactersContainer() {
   const [page, setPage] = useState(1);

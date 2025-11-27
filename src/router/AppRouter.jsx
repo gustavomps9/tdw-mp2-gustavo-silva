@@ -4,8 +4,8 @@ import Characters from "../pages/Characters.jsx";
 import CharacterDetail from "../pages/CharacterDetail.jsx";
 import Favorites from "../pages/Favorites.jsx";
 import About from "../pages/About.jsx";
-import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/Footer.jsx";
+import Navbar from "../components/Other/Navbar.jsx";
+import Footer from "../components/Other/Footer.jsx";
 
 export default function AppRouter() {
   return (

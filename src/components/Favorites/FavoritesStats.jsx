@@ -1,6 +1,3 @@
-import React from "react";
-import { FavoritesContext } from "../context/FavoritesContext";
-
 export default function FavoritesStats({ favorites }) {
   const stats = {
     total: favorites.length,
