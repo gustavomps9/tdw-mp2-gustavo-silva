@@ -9,7 +9,7 @@ export default function HomeContent() {
       <section className="text-center space-y-8">
         <div className="flex items-center justify-center gap-6 mb-8">
           <h1 className="text-5xl font-bold gradient-text">
-            Rick & Morty Explorer
+            Rick & Morty
           </h1>
           <img 
             src={logo} 
@@ -19,7 +19,7 @@ export default function HomeContent() {
         </div>
 
         <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
-          Explora o universo  de Rick & Morty através desta aplicação web 
+          Explora o universo de Rick & Morty através desta aplicação web 
           que consome a <span className="font-semibold text-green-600 dark:text-green-400">Rick and Morty API</span>. 
           Descobre as personagens, filtra por espécies, status e muito mais.
         </p>
@@ -61,17 +61,17 @@ export default function HomeContent() {
         </div>
         
         <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700">
-          <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Gustavo Silva</h3>
+          <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Olá, sou o Gustavo Silva</h3>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
-            22 anos, Mestrado em Comunicação e Tecnologias Web com interesse 
-            em desenvolvimento mobile, Front-End e UI/UX Design.
-            Fora ambiente académico, jogo basquetebol federado, gosto de viajar e 
+            Tenho 22 anos, sou aluno do Mestrado em Comunicação e Tecnologias Web e os meus interesses baseiam-se em desenvolvimento mobile, Front-End e UI/UX Design.
+            <p></p>
+            Algumas curiosidades sobre mim: jogo basquetebol federado desde os meus 6 anos, gosto de viajar e 
             explorar novas culturas.
           </p>
           <div className="text-sm text-gray-500 dark:text-gray-400">
             <p>🎓 Mestrado em Comunicação e Tecnologias Web</p>
             <p>💻 Desenvolvimento Front-End & Mobile</p>
-            <p>🎨 UI/UX Design Enthusiast</p>
+            <p>🎨 UI/UX Design</p>
           </div>
         </div>
       </section>

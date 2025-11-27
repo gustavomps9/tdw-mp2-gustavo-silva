@@ -4,7 +4,6 @@ export default function AboutContent() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-12 space-y-12">
       
-      {/* Header Section */}
       <section className="text-center space-y-6">
         <h1 className="text-5xl font-bold gradient-text mb-4">
           Sobre o Projeto
@@ -12,7 +11,6 @@ export default function AboutContent() {
         <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-500 mx-auto rounded-full"></div>
       </section>
 
-      {/* Project Description */}
       <section className="bg-white dark:bg-gray-800/50 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-blue-700/30 backdrop-blur-sm">
         <div className="space-y-6 text-lg leading-relaxed">
           <p className="text-gray-700 dark:text-blue-100">
@@ -43,7 +41,6 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* Technologies & Implementation */}
       <section className="bg-white dark:bg-gray-800/50 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-blue-700/30 backdrop-blur-sm">
         <h2 className="text-3xl font-bold gradient-text mb-6">Tecnologias e Implementação</h2>
         

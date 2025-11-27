@@ -21,7 +21,7 @@ export default function Navbar() {
           />
           <div>
             <h1 className="text-2xl font-bold gradient-text">
-              Rick & Morty Explorer
+              Rick & Morty
             </h1>
             <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
               Mini Projeto M2A - TDW
