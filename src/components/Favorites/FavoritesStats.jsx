@@ -1,4 +1,9 @@
+import React from "react";
+import { useLanguage } from "../../hooks/useLanguage";
+
 export default function FavoritesStats({ favorites }) {
+  const { t } = useLanguage();
+  
   const stats = {
     total: favorites.length,
     alive: favorites.filter(c => c.status === 'Alive').length,
@@ -9,27 +14,27 @@ export default function FavoritesStats({ favorites }) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
       <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
-        Estatísticas dos Favoritos
+        {t('favorites.stats')}
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
         <StatCard 
           value={stats.total} 
-          label="Total" 
+          label={t('favorites.total')} 
           color="green" 
         />
         <StatCard 
           value={stats.alive} 
-          label="Vivos" 
+          label={t('characters.alive')} 
           color="blue" 
         />
         <StatCard 
           value={stats.dead} 
-          label="Mortos" 
+          label={t('characters.dead')} 
           color="red" 
         />
         <StatCard 
           value={stats.unknown} 
-          label="Desconhecidos" 
+          label={t('characters.unknown')} 
           color="purple" 
         />
       </div>

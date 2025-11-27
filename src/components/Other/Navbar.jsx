@@ -1,19 +1,19 @@
 import { Link, NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
 import { useFavorites } from "../../hooks/useFavorites";
+import { useLanguage } from "../../hooks/useLanguage";
 import logo from "/public/rick-and-morty-v2.png";
 
 export default function Navbar() {
   const { favoritesCount } = useFavorites();
+  const { t } = useLanguage();
 
   return (
     <nav className="navbar-glass sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         
-        <Link 
-          to="/" 
-          className="flex items-center gap-3 group"
-        >
+        <Link to="/" className="flex items-center gap-3 group">
           <img 
             src={logo} 
             alt="Rick and Morty Logo" 
@@ -21,22 +21,22 @@ export default function Navbar() {
           />
           <div>
             <h1 className="text-2xl font-bold gradient-text">
-              Rick & Morty
+              {t('home.title')}
             </h1>
             <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
-              Mini Projeto M2A - TDW
+                {t('footer.miniProject')} - TDW
             </p>
           </div>
         </Link>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-6">
           <NavLink
             to="/"
             className={({ isActive }) => 
               `nav-link ${isActive ? 'nav-link-active' : ''}`
             }
           >
-            Home
+            {t('nav.home')}
           </NavLink>
 
           <NavLink
@@ -45,7 +45,7 @@ export default function Navbar() {
               `nav-link ${isActive ? 'nav-link-active' : ''}`
             }
           >
-            Personagens
+            {t('nav.characters')}
           </NavLink>
 
           <NavLink
@@ -54,7 +54,7 @@ export default function Navbar() {
               `nav-link ${isActive ? 'nav-link-active' : ''}`
             }
           >
-            Favoritos
+            {t('nav.favorites')}
             {favoritesCount > 0 && (
               <span className="ml-1 px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full">
                 {favoritesCount}
@@ -68,9 +68,11 @@ export default function Navbar() {
               `nav-link ${isActive ? 'nav-link-active' : ''}`
             }
           >
-            Sobre o Projeto
+            {t('nav.about')}
           </NavLink>
 
+          <LanguageToggle />
+          
           <ThemeToggle />
         </div>
       </div>
