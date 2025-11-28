@@ -12,7 +12,8 @@
     "cancel": "Cancel",
     "page": "Page {current} of {total}",
     "next": "Next",
-    "previous": "Previous"
+    "previous": "Previous",
+    "clearFilters": "Clear Filters"
   },
   "nav": {
     "home": "Home",

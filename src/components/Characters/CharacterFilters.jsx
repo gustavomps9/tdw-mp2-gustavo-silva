@@ -5,7 +5,6 @@ export default function CharacterFilters({
   filters,
   setFilters,
   speciesOptions,
-  originOptions,
 }) {
   const { t } = useLanguage();
 
@@ -14,9 +13,26 @@ export default function CharacterFilters({
     "bg-white text-gray-900 border-gray-300 " +                
     "dark:bg-gray-800 dark:text-white dark:border-gray-600";
 
-  return (
-    <div className="flex flex-wrap gap-4 mb-6">
+  const hasActiveFilters = 
+    filters.status || 
+    filters.gender || 
+    filters.species || 
+    filters.episodeRange || 
+    filters.sort;
 
+  const clearAllFilters = () => {
+    setFilters({
+      ...filters,
+      status: "",
+      gender: "",
+      species: "",
+      episodeRange: "",
+      sort: "",
+    });
+  };
+
+  return (
+    <div className="flex flex-wrap gap-4 mb-6 items-center">
       <select
         className={baseSelect}
         value={filters.status}
@@ -55,19 +71,6 @@ export default function CharacterFilters({
 
       <select
         className={baseSelect}
-        value={filters.origin}
-        onChange={(e) => setFilters({ ...filters, origin: e.target.value })}
-      >
-        <option value="">{t('characters.origin')} - {t('common.all')}</option>
-        {originOptions.map((o) => (
-          <option key={o} value={o}>
-            {o}
-          </option>
-        ))}
-      </select>
-
-      <select
-        className={baseSelect}
         value={filters.episodeRange}
         onChange={(e) => setFilters({ ...filters, episodeRange: e.target.value })}
       >
@@ -88,6 +91,15 @@ export default function CharacterFilters({
         <option value="episodes">{t('characters.sortEpisodes')}</option>
         <option value="id">{t('characters.sortId')}</option>
       </select>
+
+      {hasActiveFilters && (
+        <button
+          onClick={clearAllFilters}
+          className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium"
+        >
+          {t('common.clearFilters')}
+        </button>
+      )}
     </div>
   );
 }

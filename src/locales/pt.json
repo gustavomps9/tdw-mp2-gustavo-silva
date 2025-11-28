@@ -12,7 +12,8 @@
     "cancel": "Cancelar",
     "page": "Página {current} de {total}",
     "next": "Próximo",
-    "previous": "Anterior"
+    "previous": "Anterior",
+    "clearFilters": "Limpar Filtros"
   },
   "nav": {
     "home": "Início",

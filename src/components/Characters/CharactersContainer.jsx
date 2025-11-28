@@ -12,7 +12,6 @@ export default function CharactersContainer() {
     status: "",
     gender: "",
     species: "",
-    origin: "",
     episodeRange: "",
     sort: "",
   });
@@ -27,15 +26,8 @@ export default function CharactersContainer() {
   });
 
   const speciesOptions = data ? [...new Set(data.results.map(c => c.species))] : [];
-  const originOptions = data ? [...new Set(data.results.map(c => c.origin.name))] : [];
 
   let filteredCharacters = data ? [...data.results] : [];
-
-  if (filters.origin) {
-    filteredCharacters = filteredCharacters.filter(
-      c => c.origin.name === filters.origin
-    );
-  }
 
   if (filters.episodeRange === "1-5") {
     filteredCharacters = filteredCharacters.filter(c => c.episode.length <= 5);
@@ -57,7 +49,6 @@ export default function CharactersContainer() {
 
   return (
     <div className="p-8">
-
       <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
         {t('characters.title')}
       </h1>
@@ -74,7 +65,6 @@ export default function CharactersContainer() {
         filters={filters}
         setFilters={setFilters}
         speciesOptions={speciesOptions}
-        originOptions={originOptions}
       />
 
       {isLoading && (
