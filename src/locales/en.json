@@ -23,6 +23,9 @@
     "language system": "Language System"
   },
   "characters": {
+    "pageTitle": "Characters | Mini Project M2A",
+    "detailPageTitle": "{name} | Mini Project M2A",
+    "loadingTitle": "Loading... | Mini Project M2A",
     "title": "Characters",
     "searchPlaceholder": "Search characters by name...",
     "status": "Status",
@@ -52,6 +55,7 @@
     "advanced filter": "Advanced Filters"
   },
   "favorites": {
+    "pageTitle": "Favorites | Mini Project M2A",
     "title": "My Favorites",
     "emptyTitle": "No Favorites Yet",
     "emptyMessage": "Start exploring characters and add them to your favorites to see them here!",
@@ -65,6 +69,7 @@
     "remove": "Remove from favorites"
   },
   "about": {
+    "pageTitle": "About the Project | Mini Project M2A",
     "title": "About the Project",
     "projectDescription": "The project consists of developing a web application capable of consuming dynamic data from an external API, specifically the Rick and Morty API, allowing the retrieval and presentation of updated information about the series' characters.",
     "listingDescription": "The application provides a complete character listing, including pagination features and advanced filters that allow the user to refine the search according to criteria such as name, species, status or location.",
@@ -78,6 +83,7 @@
     "darkLightMode": "Dark/Light Mode"
   },
   "home": {
+    "pageTitle": "Home | Mini Project M2A",
     "title": "Rick & Morty Explorer",
     "subtitle": "Explore the multidimensional universe of Rick & Morty, through this web application that consumes the ",
     "discoverCharacters": "Discover characters, filter by species, status and much more.",
@@ -95,6 +101,6 @@
     }
   },
     "footer": {
-        "miniProject": "M2A Mini Project"
+        "miniProject": "Mini Project M2A"
     }
 }

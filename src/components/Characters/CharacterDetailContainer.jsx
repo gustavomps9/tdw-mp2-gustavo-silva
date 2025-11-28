@@ -11,9 +11,11 @@ export default function CharacterDetailContainer() {
 
   useEffect(() => {
     if (data) {
-      document.title = `${data.name} | Mini Projeto M2A`;
+      document.title = t('characters.detailPageTitle', { name: data.name });
+    } else {
+      document.title = t('characters.loadingTitle');
     }
-  }, [data]);
+  }, [data, t]);
 
   if (isLoading)
     return <p className="text-gray-800 dark:text-gray-200 p-8 text-xl">{t('common.loading')}...</p>;

@@ -23,6 +23,9 @@
     "language system": "Sistema de Idioma"
 },
   "characters": {
+    "pageTitle": "Personagens | Mini Projeto M2A",
+    "detailPageTitle": "{name} | Mini Projeto M2A",
+    "loadingTitle": "Carregando... | Mini Projeto M2A",
     "title": "Personagens",
     "searchPlaceholder": "Pesquisar personagens por nome...",
     "status": "Estado",
@@ -52,6 +55,7 @@
     "advanced filter": "Filtros Avançados"
   },
   "favorites": {
+    "pageTitle": "Favoritos | Mini Projeto M2A",
     "title": "Meus Favoritos",
     "emptyTitle": "Sem Favoritos",
     "emptyMessage": "Começa a adicionar personagens aos teus favoritos para vê-los aqui!",
@@ -65,6 +69,7 @@
     "remove": "Remover dos favoritos"
   },
   "about": {
+    "pageTitle": "Sobre o Projeto | Mini Projeto M2A",
     "title": "Sobre o Projeto",
     "projectDescription": "O projeto consiste no desenvolvimento de uma aplicação web capaz de consumir dados dinâmicos de uma API externa, concretamente a Rick and Morty API, permitindo a obtenção e apresentação de informação atualizada sobre as personagens da série.",
     "listingDescription": "A aplicação proporciona uma listagem completa de personagens, incluindo funcionalidades de paginação e filtros avançados que possibilitam ao utilizador refinar a pesquisa de acordo com critérios como nome, espécie, estado ou localização.",
@@ -86,6 +91,7 @@
     "aboutProject": "Sobre o Projeto",
     "projectDescription": "Desenvolvido como parte do Mestrado em Comunicação e Tecnologias Web, nomeadamente para a UC de Tecnologias de Desenvolvimento Web, este projeto demonstra os conhecimentos adquiridos ao longo deste módulo em React, Redux Toolkit, RTK Query e desenvolvimento de interfaces modernas.",
     "aboutMe": "Sobre Mim",
+    "pageTitle": "Home | Mini Projeto M2A",
     "aboutMeSection": {
       "age": "Tenho 22 anos, sou aluno do Mestrado em Comunicação e Tecnologias Web e os meus interesses baseiam-se em desenvolvimento mobile, Front-End e UI/UX Design.",
       "hobbies": "Algumas curiosidades sobre mim: jogo basquetebol federado desde os meus 6 anos, gosto de viajar e explorar novas culturas.",
