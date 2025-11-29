@@ -1,4 +1,4 @@
-name: CI/CD Pipeline - Rick and Morty
+name: CI/CD Pipeline - React Vite
 
 on:
   push:
@@ -7,11 +7,13 @@ on:
     branches: ["master", "main"]
 
 jobs:
-  quality-and-build:
+  # 1️⃣ Instala dependências (com cache npm)
+  npm-install:
     runs-on: ubuntu-latest
+    outputs:
+      cache-hit: ${{ steps.cache.outputs.cache-hit }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -22,14 +24,74 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check code formatting
-        run: npm run format:check
+  # 2️⃣ Prettier
+  prettier:
+    runs-on: ubuntu-latest
+    needs: npm-install
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - name: Run Prettier
+        run: |
+          npm ci
+          npm run format:check
+
+  # 3️⃣ ESLint
+  eslint:
+    runs-on: ubuntu-latest
+    needs: npm-install
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
 
       - name: Run ESLint
-        run: npm run lint
+        run: |
+          npm ci
+          npm run lint
+
+  # 4️⃣ Testes
+  tests:
+    runs-on: ubuntu-latest
+    needs: npm-install
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
 
       - name: Run tests
-        run: npm test || echo "No tests implemented yet - continuing pipeline"
+        run: |
+          npm ci
+          npm test || echo "No tests implemented yet"
+
+  # 5️⃣ Build do projeto
+  build:
+    runs-on: ubuntu-latest
+    needs: [prettier, eslint, tests]
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build project
         run: npm run build
@@ -41,9 +103,10 @@ jobs:
           path: dist/
           retention-days: 1
 
+  # 6️⃣ Deploy para Netlify
   deploy:
     runs-on: ubuntu-latest
-    needs: quality-and-build
+    needs: build
     if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
     steps:
       - name: Download build artifacts
@@ -52,10 +115,12 @@ jobs:
           name: dist-files
           path: dist/
 
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+
       - name: Deploy to Netlify
-        uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        with:
-          args: deploy --prod --dir=dist
+        run: |
+          npx netlify deploy --prod --dir=dist
