@@ -1,11 +1,11 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from "react";
 
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
   const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem('darkMode');
-    return saved ? JSON.parse(saved) : true; 
+    const saved = localStorage.getItem("darkMode");
+    return saved ? JSON.parse(saved) : true;
   });
 
   useEffect(() => {
@@ -17,7 +17,6 @@ export function ThemeProvider({ children }) {
       document.documentElement.classList.remove("dark");
     }
   }, [isDark]);
-
 
   const toggleTheme = () => setIsDark(!isDark);
 

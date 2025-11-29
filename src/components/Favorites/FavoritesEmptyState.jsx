@@ -11,20 +11,21 @@ export default function FavoritesEmptyState() {
         <div className="bg-white dark:bg-gray-800 rounded-2xl p-12 shadow-lg border border-gray-100 dark:border-gray-700">
           <div className="w-24 h-24 mx-auto mb-6 text-gray-300 dark:text-gray-600">
             <svg fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+              <path
+                fillRule="evenodd"
+                d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                clipRule="evenodd"
+              />
             </svg>
           </div>
           <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
-            {t('favorites.emptyTitle')}
+            {t("favorites.emptyTitle")}
           </h1>
           <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
-            {t('favorites.emptyMessage')}
+            {t("favorites.emptyMessage")}
           </p>
-          <Link 
-            to="/characters" 
-            className="btn-primary inline-block"
-          >
-            {t('favorites.exploreCharacters')}
+          <Link to="/characters" className="btn-primary inline-block">
+            {t("favorites.exploreCharacters")}
           </Link>
         </div>
       </div>

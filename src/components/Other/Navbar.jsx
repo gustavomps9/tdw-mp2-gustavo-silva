@@ -12,19 +12,18 @@ export default function Navbar() {
   return (
     <nav className="navbar-glass sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        
         <Link to="/" className="flex items-center gap-3 group">
-          <img 
-            src={logo} 
-            alt="Rick and Morty Logo" 
+          <img
+            src={logo}
+            alt="Rick and Morty Logo"
             className="h-12 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
           />
           <div>
             <h1 className="text-2xl font-bold gradient-text">
-              {t('home.title')}
+              {t("home.title")}
             </h1>
             <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
-                {t('footer.miniProject')} - TDW
+              {t("footer.miniProject")} - TDW
             </p>
           </div>
         </Link>
@@ -32,29 +31,29 @@ export default function Navbar() {
         <div className="flex items-center gap-6">
           <NavLink
             to="/"
-            className={({ isActive }) => 
-              `nav-link ${isActive ? 'nav-link-active' : ''}`
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "nav-link-active" : ""}`
             }
           >
-            {t('nav.home')}
+            {t("nav.home")}
           </NavLink>
 
           <NavLink
             to="/characters"
-            className={({ isActive }) => 
-              `nav-link ${isActive ? 'nav-link-active' : ''}`
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "nav-link-active" : ""}`
             }
           >
-            {t('nav.characters')}
+            {t("nav.characters")}
           </NavLink>
 
           <NavLink
             to="/favorites"
-            className={({ isActive }) => 
-              `nav-link ${isActive ? 'nav-link-active' : ''}`
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "nav-link-active" : ""}`
             }
           >
-            {t('nav.favorites')}
+            {t("nav.favorites")}
             {favoritesCount > 0 && (
               <span className="ml-1 px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full">
                 {favoritesCount}
@@ -64,15 +63,15 @@ export default function Navbar() {
 
           <NavLink
             to="/about"
-            className={({ isActive }) => 
-              `nav-link ${isActive ? 'nav-link-active' : ''}`
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "nav-link-active" : ""}`
             }
           >
-            {t('nav.about')}
+            {t("nav.about")}
           </NavLink>
 
           <LanguageToggle />
-          
+
           <ThemeToggle />
         </div>
       </div>

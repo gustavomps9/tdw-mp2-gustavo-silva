@@ -1,43 +1,41 @@
-import ptTranslations from '../locales/pt.json';
-import enTranslations from '../locales/en.json';
+import ptTranslations from "../locales/pt.json";
+import enTranslations from "../locales/en.json";
 import React, { useState, useEffect } from "react";
 import { LanguageContext } from "./LanguageContext";
 
-
 const translations = {
   pt: ptTranslations,
-  en: enTranslations
+  en: enTranslations,
 };
-
 
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(() => {
-    const saved = localStorage.getItem('appLanguage');
-    return saved || 'pt'; 
+    const saved = localStorage.getItem("appLanguage");
+    return saved || "pt";
   });
 
   useEffect(() => {
-    localStorage.setItem('appLanguage', language);
+    localStorage.setItem("appLanguage", language);
     document.documentElement.lang = language;
   }, [language]);
 
   const t = (key, params = {}) => {
-    const keys = key.split('.');
+    const keys = key.split(".");
     let value = translations[language];
-    
+
     for (const k of keys) {
       value = value?.[k];
     }
-    
+
     if (value === undefined) {
       let fallbackValue = translations.pt;
       for (const k of keys) {
         fallbackValue = fallbackValue?.[k];
       }
-      value = fallbackValue || key; 
+      value = fallbackValue || key;
     }
 
-    if (typeof value === 'string') {
+    if (typeof value === "string") {
       return value.replace(/{(\w+)}/g, (match, param) => {
         return params[param] !== undefined ? params[param] : match;
       });
@@ -47,7 +45,7 @@ export function LanguageProvider({ children }) {
   };
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'pt' ? 'en' : 'pt');
+    setLanguage((prev) => (prev === "pt" ? "en" : "pt"));
   };
 
   const value = {
@@ -55,8 +53,8 @@ export function LanguageProvider({ children }) {
     setLanguage,
     t,
     toggleLanguage,
-    isPortuguese: language === 'pt',
-    isEnglish: language === 'en'
+    isPortuguese: language === "pt",
+    isEnglish: language === "en",
   };
 
   return (

@@ -6,7 +6,7 @@ export default function Characters() {
   const { t } = useLanguage();
 
   useEffect(() => {
-    document.title = t('characters.pageTitle');
+    document.title = t("characters.pageTitle");
   }, [t]);
 
   return <CharactersContainer />;

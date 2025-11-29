@@ -3,39 +3,35 @@ import { useLanguage } from "../../hooks/useLanguage";
 
 export default function FavoritesStats({ favorites }) {
   const { t } = useLanguage();
-  
+
   const stats = {
     total: favorites.length,
-    alive: favorites.filter(c => c.status === 'Alive').length,
-    dead: favorites.filter(c => c.status === 'Dead').length,
-    unknown: favorites.filter(c => c.status === 'unknown').length,
+    alive: favorites.filter((c) => c.status === "Alive").length,
+    dead: favorites.filter((c) => c.status === "Dead").length,
+    unknown: favorites.filter((c) => c.status === "unknown").length,
   };
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
       <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
-        {t('favorites.stats')}
+        {t("favorites.stats")}
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-        <StatCard 
-          value={stats.total} 
-          label={t('favorites.total')} 
-          color="green" 
+        <StatCard
+          value={stats.total}
+          label={t("favorites.total")}
+          color="green"
         />
-        <StatCard 
-          value={stats.alive} 
-          label={t('characters.alive')} 
-          color="blue" 
+        <StatCard
+          value={stats.alive}
+          label={t("characters.alive")}
+          color="blue"
         />
-        <StatCard 
-          value={stats.dead} 
-          label={t('characters.dead')} 
-          color="red" 
-        />
-        <StatCard 
-          value={stats.unknown} 
-          label={t('characters.unknown')} 
-          color="purple" 
+        <StatCard value={stats.dead} label={t("characters.dead")} color="red" />
+        <StatCard
+          value={stats.unknown}
+          label={t("characters.unknown")}
+          color="purple"
         />
       </div>
     </div>
@@ -44,10 +40,12 @@ export default function FavoritesStats({ favorites }) {
 
 function StatCard({ value, label, color }) {
   const colorClasses = {
-    green: "bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400",
+    green:
+      "bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400",
     blue: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400",
     red: "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400",
-    purple: "bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400",
+    purple:
+      "bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400",
   };
 
   return (

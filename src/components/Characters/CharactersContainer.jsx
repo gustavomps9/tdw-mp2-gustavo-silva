@@ -25,32 +25,43 @@ export default function CharactersContainer() {
     species: filters.species,
   });
 
-  const speciesOptions = data ? [...new Set(data.results.map(c => c.species))] : [];
+  const speciesOptions = data
+    ? [...new Set(data.results.map((c) => c.species))]
+    : [];
 
   let filteredCharacters = data ? [...data.results] : [];
 
   if (filters.episodeRange === "1-5") {
-    filteredCharacters = filteredCharacters.filter(c => c.episode.length <= 5);
+    filteredCharacters = filteredCharacters.filter(
+      (c) => c.episode.length <= 5,
+    );
   }
   if (filters.episodeRange === "6-10") {
-    filteredCharacters = filteredCharacters.filter(c => c.episode.length > 5 && c.episode.length <= 10);
+    filteredCharacters = filteredCharacters.filter(
+      (c) => c.episode.length > 5 && c.episode.length <= 10,
+    );
   }
   if (filters.episodeRange === "10plus") {
-    filteredCharacters = filteredCharacters.filter(c => c.episode.length > 10);
+    filteredCharacters = filteredCharacters.filter(
+      (c) => c.episode.length > 10,
+    );
   }
 
-  if (filters.sort === "az") filteredCharacters.sort((a, b) => a.name.localeCompare(b.name));
-  if (filters.sort === "za") filteredCharacters.sort((a, b) => b.name.localeCompare(a.name));
-  if (filters.sort === "episodes") filteredCharacters.sort((a, b) => b.episode.length - a.episode.length);
+  if (filters.sort === "az")
+    filteredCharacters.sort((a, b) => a.name.localeCompare(b.name));
+  if (filters.sort === "za")
+    filteredCharacters.sort((a, b) => b.name.localeCompare(a.name));
+  if (filters.sort === "episodes")
+    filteredCharacters.sort((a, b) => b.episode.length - a.episode.length);
   if (filters.sort === "id") filteredCharacters.sort((a, b) => a.id - b.id);
 
   const noResults =
-    (!data || (error && error.status === 404)) || filteredCharacters.length === 0;
+    !data || (error && error.status === 404) || filteredCharacters.length === 0;
 
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-        {t('characters.title')}
+        {t("characters.title")}
       </h1>
 
       <SearchBar
@@ -68,16 +79,18 @@ export default function CharactersContainer() {
       />
 
       {isLoading && (
-        <p className="text-gray-800 dark:text-gray-300">{t('common.loading')}</p>
+        <p className="text-gray-800 dark:text-gray-300">
+          {t("common.loading")}
+        </p>
       )}
 
       {!isLoading && error && error.status !== 404 && (
-        <p className="text-red-500 dark:text-red-400">{t('common.error')}</p>
+        <p className="text-red-500 dark:text-red-400">{t("common.error")}</p>
       )}
 
       {!isLoading && noResults && (
         <p className="text-yellow-500 dark:text-yellow-300 text-lg">
-          {t('characters.noResults')}
+          {t("characters.noResults")}
         </p>
       )}
 
@@ -96,11 +109,11 @@ export default function CharactersContainer() {
               onClick={() => setPage((p) => p - 1)}
               disabled={!data.info.prev}
             >
-              {t('common.back')}
+              {t("common.back")}
             </button>
 
             <span className="text-gray-900 dark:text-gray-300 px-4 py-2">
-              {t('common.page', { current: page, total: data.info.pages })}
+              {t("common.page", { current: page, total: data.info.pages })}
             </span>
 
             <button
@@ -109,7 +122,7 @@ export default function CharactersContainer() {
               onClick={() => setPage((p) => p + 1)}
               disabled={!data.info.next}
             >
-              {t('common.next')}
+              {t("common.next")}
             </button>
           </div>
         </>

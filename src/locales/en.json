@@ -43,7 +43,7 @@
     "sort": "Sort By",
     "sortAZ": "A-Z",
     "sortZA": "Z-A",
-    "sortEpisodes": "By Episodes", 
+    "sortEpisodes": "By Episodes",
     "sortId": "By ID",
     "episodeRange": "Episodes",
     "episode1_5": "1–5 episodes",
@@ -100,7 +100,7 @@
       "design": "UI/UX Design"
     }
   },
-    "footer": {
-        "miniProject": "Mini Project M2A"
-    }
+  "footer": {
+    "miniProject": "Mini Project M2A"
+  }
 }
