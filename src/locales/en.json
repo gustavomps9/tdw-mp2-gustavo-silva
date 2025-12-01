@@ -64,7 +64,7 @@
     "backToCharacters": "Back to Characters",
     "stats": "Favorites Statistics",
     "total": "Total",
-    "charactersSaved": "{count} character{count, plural, one {} other {s}} saved",
+    "charactersSaved": "{count} character(s) saved",
     "add": "Add to favorites",
     "remove": "Remove from favorites"
   },

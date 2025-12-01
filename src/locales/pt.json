@@ -64,7 +64,7 @@
     "backToCharacters": "Voltar para Personagens",
     "stats": "Estatísticas dos Favoritos",
     "total": "Total",
-    "charactersSaved": "{count} personagem{count, plural, one {} other {s}} guardado{count, plural, one {} other {s}}",
+    "charactersSaved": "{count} personagem(ns) guardado(s)",
     "add": "Adicionar aos favoritos",
     "remove": "Remover dos favoritos"
   },
